@@ -13,7 +13,7 @@ namespace ConsoleUI
         static IBrandService _brandService = new BrandManager(new EfBrandDal());
         static void Main(string[] args)
         {
-            //CarTest();
+            CarTest();
             //BrandAdd();
             //BrandUpdate();
             //BrandDelete();
@@ -22,7 +22,7 @@ namespace ConsoleUI
             //ColorDelete();
             //CarAdd();
             //CarUpdate();
-            CarDelete();
+            //CarDelete();
         }
 
         private static void CarDelete()
