@@ -13,10 +13,134 @@ namespace ConsoleUI
         static IBrandService _brandService = new BrandManager(new EfBrandDal());
         static void Main(string[] args)
         {
-            CarTest();
+            //CarTest();
             //BrandAdd();
+            //BrandUpdate();
+            //BrandDelete();
             //ColorAdd();
+            //ColorUpdate();
+            //ColorDelete();
             //CarAdd();
+            //CarUpdate();
+            CarDelete();
+        }
+
+        private static void CarDelete()
+        {
+            try
+            {
+                Car car = new Car()
+                {
+                    CarId = 7,
+                    CarName = "BMW",
+                    BrandId = 2,
+                    ColorId = 2,
+                    DailyPrice = 2500,
+                    ModelYear = 2000,
+                    Description = "Yeni Araç Girişi"
+                };
+                _carService.Delete(car);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private static void CarUpdate()
+        {
+            try
+            {
+                Car car = new Car()
+                {
+                    CarId=7,
+                    CarName = "BMW",
+                    BrandId = 2,
+                    ColorId = 2,
+                    DailyPrice = 2500,
+                    ModelYear = 2000,
+                    Description = "Yeni Araç Girişi"
+                };
+                _carService.Update(car);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private static void ColorDelete()
+        {
+            try
+            {
+                Color color = new Color()
+                {
+                    ColorId = 1,
+                    ColorName = "Mavi"
+                };
+                _colorService.Delete(color);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private static void ColorUpdate()
+        {
+            try
+            {
+                Color color = new Color()
+                {
+                    ColorId=1,
+                    ColorName = "Mavi"
+                };
+                _colorService.Update(color);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private static void BrandDelete()
+        {
+            try
+            {
+                Brand brand = new Brand()
+                {
+                    BrandId = 1,
+                    BrandName = "BMW"
+                };
+                _brandService.Delete(brand);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private static void BrandUpdate()
+        {
+            try
+            {
+                Brand brand = new Brand()
+                {
+                    BrandId = 1,
+                    BrandName = "BMW"
+                };
+                _brandService.Update(brand);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private static void BrandAdd()
