@@ -1,3 +1,4 @@
 # RecapProject
 
-Db Yapısı
+Sql Server Database Yapısı
+![alt text](http://i.hizliresim.com/qvXxXJ.jpg)
