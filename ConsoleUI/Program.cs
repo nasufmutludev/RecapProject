@@ -129,9 +129,7 @@ namespace ConsoleUI
                     BrandId = 1,
                     BrandName = "BMW"
                 };
-                _brandService.Update(brand);
-                Console.WriteLine(Messages.BrandUpdated);
-
+                _brandService.Update(brand); 
             }
             catch (Exception ex)
             {
@@ -147,9 +145,7 @@ namespace ConsoleUI
                 {                    
                     BrandName = "Volvo",
                 };
-                _brandService.Add(brand);
-                Console.WriteLine(Messages.BrandAdded);
-
+                _brandService.Add(brand); 
             }
             catch (Exception ex)
             {
