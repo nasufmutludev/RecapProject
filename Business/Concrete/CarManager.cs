@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Core.Abstract;
 using Entities.Concrete;
 using Entities.DTO;
@@ -20,18 +21,19 @@ namespace Business.Concrete
         public void Add(Car car)
         {
             _carDal.Add(car);
-            Console.WriteLine("Araç Eklendi.");
+            Console.WriteLine(Messages.CarAdded);
         }
 
         public void Delete(Car car)
         {
             _carDal.Delete(car);
-            Console.WriteLine("Araç Silindi.");
+            Console.WriteLine(Messages.CarDeleted);
         }
 
         public List<Car> GetAll()
         {
             return _carDal.GetAll();
+            Console.WriteLine(Messages.CarListed);
         }
 
         public Car GetByColorId(int colorId)
@@ -57,7 +59,7 @@ namespace Business.Concrete
         public void Update(Car car)
         {
             _carDal.Update(car);
-            Console.WriteLine("Araç Güncellendi.");
+            Console.WriteLine(Messages.CarUpdated);
         }
     }
 }

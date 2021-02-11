@@ -39,8 +39,7 @@ namespace ConsoleUI
                     ModelYear = 2000,
                     Description = "Yeni Araç Girişi"
                 };
-                _carService.Delete(car);
-
+                _carService.Delete(car); 
             }
             catch (Exception ex)
             {
@@ -62,8 +61,7 @@ namespace ConsoleUI
                     ModelYear = 2000,
                     Description = "Yeni Araç Girişi"
                 };
-                _carService.Update(car);
-
+                _carService.Update(car); 
             }
             catch (Exception ex)
             {
@@ -80,8 +78,7 @@ namespace ConsoleUI
                     ColorId = 1,
                     ColorName = "Mavi"
                 };
-                _colorService.Delete(color);
-
+                _colorService.Delete(color);   
             }
             catch (Exception ex)
             {
@@ -99,7 +96,6 @@ namespace ConsoleUI
                     ColorName = "Mavi"
                 };
                 _colorService.Update(color);
-
             }
             catch (Exception ex)
             {
@@ -116,8 +112,7 @@ namespace ConsoleUI
                     BrandId = 1,
                     BrandName = "BMW"
                 };
-                _brandService.Delete(brand);
-
+                _brandService.Delete(brand);                
             }
             catch (Exception ex)
             {
@@ -135,6 +130,7 @@ namespace ConsoleUI
                     BrandName = "BMW"
                 };
                 _brandService.Update(brand);
+                Console.WriteLine(Messages.BrandUpdated);
 
             }
             catch (Exception ex)
@@ -152,6 +148,7 @@ namespace ConsoleUI
                     BrandName = "Volvo",
                 };
                 _brandService.Add(brand);
+                Console.WriteLine(Messages.BrandAdded);
 
             }
             catch (Exception ex)
@@ -168,8 +165,7 @@ namespace ConsoleUI
                 {                   
                    ColorName="Siyah"
                 };
-                _colorService.Add(color);
-
+                _colorService.Add(color);   
             }
             catch (Exception ex)
             {
@@ -190,8 +186,7 @@ namespace ConsoleUI
                     ModelYear = 2021,
                     Description = "Yeni Araç Girişi"
                 };
-                _carService.Add(car);
-
+                _carService.Add(car);   
             }
             catch (Exception ex)
             {
@@ -203,7 +198,7 @@ namespace ConsoleUI
             CarManager carManager = new CarManager(new EfCarDal());
             foreach (var car in carManager.GetCarDetails())
             {
-                Console.WriteLine(car.CarId + "/" + car.CarName + "--" + car.BrandName + "--" + "--" + car.DailyPrice + "/" + car.ColorId + "--" + car.ColorName);
+                Console.WriteLine(car.CarId + "/" + car.CarName + "--" + car.BrandName + "--" + "--" + car.DailyPrice + "/" + car.ColorId + "--" + car.ColorName);                
             }
         }
     }

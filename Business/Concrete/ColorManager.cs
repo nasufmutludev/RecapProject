@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
@@ -19,13 +20,13 @@ namespace Business.Concrete
         public void Add(Color color)
         {
             _colorDal.Add(color);
-            Console.WriteLine("Renk bilgisi eklendi.");
+            Console.WriteLine(Messages.ColorAdded);
         }
 
         public void Delete(Color color)
         {
             _colorDal.Delete(color);
-            Console.WriteLine("Renk bilgisi silindi.");
+            Console.WriteLine(Messages.ColorDeleted);
         }
 
         public List<Color> GetAll()
@@ -36,7 +37,7 @@ namespace Business.Concrete
         public void Update(Color color)
         {
             _colorDal.Update(color);
-            Console.WriteLine("Renk bilgisi güncellendi.");
+            Console.WriteLine(Messages.ColorUpdated);
         }
     }
 }

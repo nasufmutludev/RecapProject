@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
@@ -19,13 +20,13 @@ namespace Business.Concrete
         public void Add(Brand brand)
         {
             _brandDal.Add(brand);
-            Console.WriteLine("Model bilgisi eklendi.");
+            Console.WriteLine(Messages.BrandAdded);
         }
 
         public void Delete(Brand brand)
         {
             _brandDal.Delete(brand);
-            Console.WriteLine("Model bilgisi silindi.");
+            Console.WriteLine(Messages.BrandDeleted);
         }
 
         public List<Brand> GetAll()
@@ -36,7 +37,7 @@ namespace Business.Concrete
         public void Update(Brand brand)
         {
             _brandDal.Update(brand);
-            Console.WriteLine("Model bilgisi güncellendi..");
+            Console.WriteLine(Messages.BrandUpdated);
         }
     }
 }
