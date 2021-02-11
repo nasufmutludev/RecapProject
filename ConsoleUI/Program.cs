@@ -18,11 +18,30 @@ namespace ConsoleUI
             //BrandUpdate();
             //BrandDelete();
             //ColorAdd();
+            //ColorListed();
             //ColorUpdate();
             //ColorDelete();
             //CarAdd();
             //CarUpdate();
             //CarDelete();
+        }
+
+        private static void ColorListed()
+        {
+            ColorManager carManager = new ColorManager(new EfColorDal());
+            var result = carManager.GetAll();
+            if (result.Success == true)
+            {
+                foreach (var color in carManager.GetAll().Data)
+                {
+                    Console.WriteLine(color.ColorName);
+                    Console.WriteLine(result.Message);
+                }
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
         }
 
         private static void CarDelete()
