@@ -4,13 +4,6 @@ using Business.Constants;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WinFormsApp
@@ -23,19 +16,23 @@ namespace WinFormsApp
             _carService = new CarManager(new EfCarDal());
             _brandService = new BrandManager(new EfBrandDal());
             _colorService = new ColorManager(new EfColorDal());
+            _userService = new UserManager(new EfUserDal());
         }
         ICarService _carService;
         IBrandService _brandService;
         IColorService _colorService;
+        IUserService _userService;
         private void CarDetails_Load(object sender, EventArgs e)
         {
             CustomDate();
+            
             CarList();
             CarHeaderText();
             dtCarList.Columns[0].Visible = false;
             CmbMarka();
             CmbColor();
-        }
+            
+        }  
 
         private void CustomDate()
         {
@@ -106,7 +103,7 @@ namespace WinFormsApp
 
         private void dtCarList_MouseHover(object sender, EventArgs e)
         {
-            dataStatus.Text = Messages.CarListed;
+            dataStatus.Text = Messages.Listed;
         }
 
         private void cmbBrand_MouseHover(object sender, EventArgs e)
@@ -150,7 +147,7 @@ namespace WinFormsApp
                 });
                 CarList();
                 TextBoxClear();
-                MessageBox.Show("Sistem Bilgisi: " + Messages.CarUpdated);
+                MessageBox.Show("Sistem Bilgisi: " + Messages.Updated);
             }
             catch (Exception hata)
             {
@@ -169,7 +166,7 @@ namespace WinFormsApp
                         CarId = Convert.ToInt32(dtCarList.CurrentRow.Cells[0].Value)
                     });
                 }
-                MessageBox.Show("Sistem Bilgisi: " + Messages.CarDeleted);
+                MessageBox.Show("Sistem Bilgisi: " + Messages.Deleted);
                 CarList();
             }
             catch (Exception hata)
@@ -203,6 +200,18 @@ namespace WinFormsApp
         private void btnClear_Click(object sender, EventArgs e)
         {
             TextBoxClear();
+        }
+
+        private void btnUserForm_Click(object sender, EventArgs e)
+        {
+            UserForm frm = new UserForm();
+            frm.Show();
+        }
+
+        private void btnCustomer_Click(object sender, EventArgs e)
+        {
+            CustomersForm frm = new CustomersForm();
+            frm.Show();
         }
     }
 }

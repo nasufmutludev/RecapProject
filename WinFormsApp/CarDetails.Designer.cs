@@ -49,8 +49,11 @@ namespace WinFormsApp
             this.cmbModelYear = new System.Windows.Forms.ComboBox();
             this.cmbColor = new System.Windows.Forms.ComboBox();
             this.lblModelYear = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.statusCheck = new System.Windows.Forms.StatusStrip();
             this.dataStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnUserForm = new System.Windows.Forms.Button();
+            this.btnCustomer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtCarList)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -74,10 +77,11 @@ namespace WinFormsApp
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(12, 43);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(762, 648);
+            this.tabControl1.Size = new System.Drawing.Size(762, 656);
             this.tabControl1.TabIndex = 2;
             // 
             // tabPage1
@@ -88,7 +92,7 @@ namespace WinFormsApp
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(754, 620);
+            this.tabPage1.Size = new System.Drawing.Size(754, 628);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Araç Bilgisi";
             // 
@@ -263,11 +267,21 @@ namespace WinFormsApp
             this.lblModelYear.TabIndex = 8;
             this.lblModelYear.Text = "Model Yılı :";
             // 
+            // tabPage2
+            // 
+            this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage2.Location = new System.Drawing.Point(4, 24);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(754, 628);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Kiralanan Araçlar";
+            // 
             // statusCheck
             // 
             this.statusCheck.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dataStatus});
-            this.statusCheck.Location = new System.Drawing.Point(0, 666);
+            this.statusCheck.Location = new System.Drawing.Point(0, 702);
             this.statusCheck.Name = "statusCheck";
             this.statusCheck.Size = new System.Drawing.Size(784, 22);
             this.statusCheck.TabIndex = 3;
@@ -280,12 +294,34 @@ namespace WinFormsApp
             this.dataStatus.Name = "dataStatus";
             this.dataStatus.Size = new System.Drawing.Size(0, 17);
             // 
+            // btnUserForm
+            // 
+            this.btnUserForm.Location = new System.Drawing.Point(600, 14);
+            this.btnUserForm.Name = "btnUserForm";
+            this.btnUserForm.Size = new System.Drawing.Size(75, 23);
+            this.btnUserForm.TabIndex = 4;
+            this.btnUserForm.Text = "Kullanıcılar";
+            this.btnUserForm.UseVisualStyleBackColor = true;
+            this.btnUserForm.Click += new System.EventHandler(this.btnUserForm_Click);
+            // 
+            // btnCustomer
+            // 
+            this.btnCustomer.Location = new System.Drawing.Point(681, 14);
+            this.btnCustomer.Name = "btnCustomer";
+            this.btnCustomer.Size = new System.Drawing.Size(75, 23);
+            this.btnCustomer.TabIndex = 5;
+            this.btnCustomer.Text = "Müşteriler";
+            this.btnCustomer.UseVisualStyleBackColor = true;
+            this.btnCustomer.Click += new System.EventHandler(this.btnCustomer_Click);
+            // 
             // CarDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(784, 688);
+            this.ClientSize = new System.Drawing.Size(784, 724);
+            this.Controls.Add(this.btnCustomer);
+            this.Controls.Add(this.btnUserForm);
             this.Controls.Add(this.statusCheck);
             this.Controls.Add(this.tabControl1);
             this.Name = "CarDetails";
@@ -328,6 +364,9 @@ namespace WinFormsApp
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Button btnUserForm;
+        private System.Windows.Forms.Button btnCustomer;
     }
 }
 
