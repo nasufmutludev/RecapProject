@@ -216,7 +216,7 @@ namespace ConsoleUI
             {
                 foreach (var car in carManager.GetCarDetails().Data)
                 {
-                    Console.WriteLine(car.CarId + "/" + car.CarName + "--" + car.BrandName + "--" + "--" + car.DailyPrice + "/" + car.ColorId + "--" + car.ColorName);
+                    Console.WriteLine(car.CarName + "--" + car.BrandName + "--" + "--" + car.DailyPrice + "/" + "--" + car.ColorName);
                     Console.WriteLine(result.Message);
                 }
             }
