@@ -39,7 +39,9 @@ namespace WinFormsApp
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnChecked = new System.Windows.Forms.Button();
             this.cmbUser = new System.Windows.Forms.ComboBox();
+            this.grbCustomer = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtCustomer)).BeginInit();
+            this.grbCustomer.SuspendLayout();
             this.SuspendLayout();
             // 
             // dtCustomer
@@ -49,13 +51,16 @@ namespace WinFormsApp
             this.dtCustomer.Location = new System.Drawing.Point(12, 12);
             this.dtCustomer.Name = "dtCustomer";
             this.dtCustomer.RowTemplate.Height = 25;
+            this.dtCustomer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtCustomer.Size = new System.Drawing.Size(461, 235);
             this.dtCustomer.TabIndex = 0;
+            this.dtCustomer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtCustomer_CellClick);
+            this.dtCustomer.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtCustomer_CellDoubleClick);
             // 
             // lblCompanyName
             // 
             this.lblCompanyName.AutoSize = true;
-            this.lblCompanyName.Location = new System.Drawing.Point(12, 300);
+            this.lblCompanyName.Location = new System.Drawing.Point(6, 48);
             this.lblCompanyName.Name = "lblCompanyName";
             this.lblCompanyName.Size = new System.Drawing.Size(42, 15);
             this.lblCompanyName.TabIndex = 1;
@@ -63,7 +68,7 @@ namespace WinFormsApp
             // 
             // txtCompanyName
             // 
-            this.txtCompanyName.Location = new System.Drawing.Point(76, 297);
+            this.txtCompanyName.Location = new System.Drawing.Point(70, 45);
             this.txtCompanyName.Name = "txtCompanyName";
             this.txtCompanyName.Size = new System.Drawing.Size(185, 23);
             this.txtCompanyName.TabIndex = 2;
@@ -71,42 +76,45 @@ namespace WinFormsApp
             // lblUser
             // 
             this.lblUser.AutoSize = true;
-            this.lblUser.Location = new System.Drawing.Point(12, 271);
+            this.lblUser.Location = new System.Drawing.Point(6, 19);
             this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(58, 15);
+            this.lblUser.Size = new System.Drawing.Size(53, 15);
             this.lblUser.TabIndex = 4;
-            this.lblUser.Text = "Kullanıcı :";
+            this.lblUser.Text = "Müşteri :";
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(316, 326);
+            this.btnClear.Location = new System.Drawing.Point(310, 74);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(96, 26);
             this.btnClear.TabIndex = 21;
             this.btnClear.Text = "Temizle";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(214, 326);
+            this.btnDelete.Location = new System.Drawing.Point(208, 74);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(96, 26);
             this.btnDelete.TabIndex = 20;
             this.btnDelete.Text = "Sil";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(112, 326);
+            this.btnEdit.Location = new System.Drawing.Point(106, 74);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(96, 26);
             this.btnEdit.TabIndex = 19;
             this.btnEdit.Text = "Düzenle";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(12, 326);
+            this.btnAdd.Location = new System.Drawing.Point(6, 74);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(96, 26);
             this.btnAdd.TabIndex = 18;
@@ -116,7 +124,7 @@ namespace WinFormsApp
             // 
             // btnChecked
             // 
-            this.btnChecked.Location = new System.Drawing.Point(214, 265);
+            this.btnChecked.Location = new System.Drawing.Point(208, 13);
             this.btnChecked.Name = "btnChecked";
             this.btnChecked.Size = new System.Drawing.Size(61, 26);
             this.btnChecked.TabIndex = 22;
@@ -128,33 +136,44 @@ namespace WinFormsApp
             // 
             this.cmbUser.Enabled = false;
             this.cmbUser.FormattingEnabled = true;
-            this.cmbUser.Location = new System.Drawing.Point(76, 268);
+            this.cmbUser.Location = new System.Drawing.Point(70, 16);
             this.cmbUser.Name = "cmbUser";
             this.cmbUser.Size = new System.Drawing.Size(132, 23);
             this.cmbUser.TabIndex = 23;
+            // 
+            // grbCustomer
+            // 
+            this.grbCustomer.Controls.Add(this.lblUser);
+            this.grbCustomer.Controls.Add(this.cmbUser);
+            this.grbCustomer.Controls.Add(this.lblCompanyName);
+            this.grbCustomer.Controls.Add(this.btnChecked);
+            this.grbCustomer.Controls.Add(this.txtCompanyName);
+            this.grbCustomer.Controls.Add(this.btnClear);
+            this.grbCustomer.Controls.Add(this.btnAdd);
+            this.grbCustomer.Controls.Add(this.btnDelete);
+            this.grbCustomer.Controls.Add(this.btnEdit);
+            this.grbCustomer.Location = new System.Drawing.Point(12, 253);
+            this.grbCustomer.Name = "grbCustomer";
+            this.grbCustomer.Size = new System.Drawing.Size(461, 113);
+            this.grbCustomer.TabIndex = 24;
+            this.grbCustomer.TabStop = false;
+            this.grbCustomer.Text = "Müşteri Ekle";
             // 
             // CustomersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(487, 372);
-            this.Controls.Add(this.cmbUser);
-            this.Controls.Add(this.btnChecked);
-            this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnEdit);
-            this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.lblUser);
-            this.Controls.Add(this.txtCompanyName);
-            this.Controls.Add(this.lblCompanyName);
+            this.ClientSize = new System.Drawing.Size(487, 378);
+            this.Controls.Add(this.grbCustomer);
             this.Controls.Add(this.dtCustomer);
             this.Name = "CustomersForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CustomersForm";
             this.Load += new System.EventHandler(this.CustomersForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtCustomer)).EndInit();
+            this.grbCustomer.ResumeLayout(false);
+            this.grbCustomer.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -170,5 +189,6 @@ namespace WinFormsApp
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnChecked;        
         public System.Windows.Forms.ComboBox cmbUser;
+        private System.Windows.Forms.GroupBox grbCustomer;
     }
 }

@@ -56,17 +56,88 @@ namespace WinFormsApp
             {
                 Customer customer = new Customer()
                 {
-                   UserId=Convert.ToInt32(cmbUser.SelectedValue),
-                   CompanyName=txtCompanyName.Text
+                    UserId = Convert.ToInt32(cmbUser.SelectedValue),
+                    CompanyName = txtCompanyName.Text
                 };
                 _customerService.Add(customer);
-                LoadCustomer();                
+                LoadCustomer();
                 MessageBox.Show("Sistem Bilgisi: " + Messages.Added);
-        }
+            }
             catch (Exception hata)
             {
                 MessageBox.Show("Sistem Bilgisi: " + hata.Message);
             }
-}
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dtCustomer.CurrentRow != null)
+                {
+                    _customerService.Delete(new Customer
+                    {
+                        CustomerId = Convert.ToInt32(dtCustomer.CurrentRow.Cells[0].Value)
+                    });
+                }
+                MessageBox.Show("Sistem Bilgisi: " + Messages.Deleted);
+                LoadCustomer();
+            }
+            catch (Exception hata)
+            {
+                MessageBox.Show("Sistem Bilgisi: " + hata.Message);
+            }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _customerService.Update(new Customer
+                {
+                    CustomerId= Convert.ToInt32(dtCustomer.CurrentRow.Cells[0].Value),
+                    UserId = Convert.ToInt32(cmbUser.SelectedValue),
+                    CompanyName = txtCompanyName.Text,
+                });
+                LoadCustomer();
+                TextBoxClear();
+                MessageBox.Show("Sistem Bilgisi: " + Messages.Updated);
+            }
+            catch (Exception hata)
+            {
+                MessageBox.Show(hata.Message);
+            }
+        }
+
+        private void TextBoxClear()
+        {
+            foreach (Control control in grbCustomer.Controls)
+            {
+                if (control.GetType().ToString() == "System.Windows.Forms.TextBox")
+                {
+                    control.Text = "";
+                }
+            }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            TextBoxClear();
+        }
+
+        private void dtCustomer_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var row = dtCustomer.CurrentRow;
+            cmbUser.Text = row.Cells[1].Value.ToString();
+            txtCompanyName.Text = Convert.ToString(row.Cells[2].Value);            
+        }
+
+        private void dtCustomer_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            RentalForm frm = (RentalForm)Application.OpenForms["RentalForm"];
+            var row = dtCustomer.CurrentRow;
+            frm.cmbCustomer.Text = row.Cells[2].Value.ToString();
+            this.Close();
+        }
     }
 }

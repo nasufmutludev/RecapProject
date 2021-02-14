@@ -66,7 +66,7 @@ namespace WinFormsApp
             this.grbUserAdd.Size = new System.Drawing.Size(411, 194);
             this.grbUserAdd.TabIndex = 18;
             this.grbUserAdd.TabStop = false;
-            this.grbUserAdd.Text = "Araç Ekle";
+            this.grbUserAdd.Text = "Kullanıcı Ekle";
             // 
             // txtMail
             // 
@@ -127,9 +127,9 @@ namespace WinFormsApp
             this.lblName.AutoSize = true;
             this.lblName.Location = new System.Drawing.Point(6, 28);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(58, 15);
+            this.lblName.Size = new System.Drawing.Size(31, 15);
             this.lblName.TabIndex = 2;
-            this.lblName.Text = "Araç Adı :";
+            this.lblName.Text = "Adı :";
             // 
             // txtName
             // 

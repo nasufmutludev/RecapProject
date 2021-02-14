@@ -29,27 +29,12 @@ namespace WinFormsApp
         IRentalService _rentalService;
         private void CarDetails_Load(object sender, EventArgs e)
         {
-            CustomDate();
-
             CarList();
             CarHeaderText();
             dtCarList.Columns[0].Visible = false;
             CmbMarka();
             CmbColor();
-            ButtonAdd();
-        }
-
-        private void ButtonAdd()
-        {
-            DataGridViewButtonColumn rentalButton = new DataGridViewButtonColumn();
-            rentalButton.HeaderText = "Kirala";
-            rentalButton.Text = "Kirala";
-            rentalButton.Name = "btnRental";
-            rentalButton.UseColumnTextForButtonValue = true;
-            rentalButton.Width = 10;
-
-            //Butonu table (kolon) olarak ekliyoruz
-            dtCarList.Columns.Add(rentalButton);
+            CustomDate();           
         }
 
         private void CustomDate()
@@ -106,8 +91,8 @@ namespace WinFormsApp
                     Description = txtDescreption.Text
                 };
                 _carService.Add(car);
-                TextBoxClear();
                 CarList();
+                TextBoxClear();
             }
             catch (Exception hata)
             {
@@ -196,32 +181,12 @@ namespace WinFormsApp
 
         private void dtCarList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            var row = dtCarList.CurrentRow;
-            txtCarName.Text = row.Cells[1].Value.ToString();
-            cmbBrand.Text = Convert.ToString(row.Cells[2].Value);
-            cmbColor.Text = Convert.ToString(row.Cells[3].Value);
-            cmbModelYear.Text = row.Cells[4].Value.ToString();
-            txtDailyPrice.Text = row.Cells[5].Value.ToString();
-            txtDescreption.Text = row.Cells[6].Value.ToString();
-
-            if (e.ColumnIndex == dtCarList.Columns[8].Index)
-            {
-                Car car = new Car()
-                {
-                    Status = Convert.ToBoolean(row.Cells[7].Value)
-                };
-                CarValidation validations = new CarValidation();
-                ValidationResult result = validations.Validate(car);
-                if (result.IsValid == true)
-                {
-                    RentalForm frm = new RentalForm();
-                    frm.Show();
-                }
-                else if (result.IsValid == false)
-                {
-                    MessageBox.Show("Araç Kiralanamaz");
-                }
-            }
+            txtCarName.Text = dtCarList.CurrentRow.Cells[1].Value.ToString();
+            cmbBrand.Text = Convert.ToString(dtCarList.CurrentRow.Cells[2].Value);
+            cmbColor.Text = Convert.ToString(dtCarList.CurrentRow.Cells[3].Value);
+            cmbModelYear.Text = dtCarList.CurrentRow.Cells[4].Value.ToString();
+            txtDailyPrice.Text = dtCarList.CurrentRow.Cells[5].Value.ToString();
+            txtDescreption.Text = dtCarList.CurrentRow.Cells[6].Value.ToString();
         }
 
         private void TextBoxClear()
@@ -250,6 +215,33 @@ namespace WinFormsApp
         {
             CustomersForm frm = new CustomersForm();
             frm.Show();
+        }
+
+        private void dtCarList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void btnRent_Click(object sender, EventArgs e)
+        {            
+            Car car = new Car()
+            {
+                Status = Convert.ToBoolean(dtCarList.CurrentRow.Cells[7].Value)
+            };
+            CarValidation validations = new CarValidation();
+            ValidationResult result = validations.Validate(car);
+            if (result.IsValid == false)
+            {                
+                RentalForm frm = new RentalForm();
+                frm.Show();
+                frm = (RentalForm)Application.OpenForms["RentalForm"];
+                frm.cmbCar.Text = dtCarList.CurrentRow.Cells[1].Value.ToString(); ;
+                
+            }
+            else if (result.IsValid == true)
+            {
+                MessageBox.Show("Araç Kiralanamaz");
+            }
         }
     }
 }
