@@ -42,9 +42,9 @@ namespace WinFormsApp
 
         private void LoadUser()
         {
-            cmbCustomer.DataSource = _customerService.GetAll().Data;
-            cmbCustomer.DisplayMember = "CustomerName";
-            cmbCustomer.ValueMember = "CustomerId";
+            //cmbCustomer.DataSource = _customerService.GetAll().Data;
+            //cmbCustomer.DisplayMember = "UserId";
+            //cmbCustomer.ValueMember = "CustomerId";
         }
 
         private void LoadCar()

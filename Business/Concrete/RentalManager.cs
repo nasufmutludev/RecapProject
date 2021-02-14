@@ -23,16 +23,6 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-        public IResult CheckReturnDate(int rentId)
-        {
-            var result = _rentalDal.GetRentalDetails(x=>x.CarId==rentId);
-            if (result.Count>0&&result.Count(x=>x.ReturnDate==null)>0)
-            {
-                return new ErrorResult();
-            }
-            return new SuccessResult();
-        }
-
         public IDataResult<List<Rental>> GetAll()
         {
             return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll());

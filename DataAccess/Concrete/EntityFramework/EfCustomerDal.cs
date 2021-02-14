@@ -20,8 +20,7 @@ namespace DataAccess.Concrete.EntityFramework
                              select new CustomerDetailDto
                              {
                                  CustomerId = c.CustomerId,
-                                 FirstName = u.FirstName,
-                                 CustomerName=c.CustomerName,
+                                 FirstName = u.FirstName,                                 
                                  CompanyName = c.CompanyName                                 
                              };
                 return result.ToList();
