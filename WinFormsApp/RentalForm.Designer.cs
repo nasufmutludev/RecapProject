@@ -34,16 +34,18 @@ namespace WinFormsApp
             this.lblRentDate = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dtpRentDate = new System.Windows.Forms.DateTimePicker();
-            this.btnChecked = new System.Windows.Forms.Button();
             this.lblCar = new System.Windows.Forms.Label();
             this.cmbCar = new System.Windows.Forms.ComboBox();
+            this.btnCheck = new System.Windows.Forms.Button();
+            this.dtRental = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dtRental)).BeginInit();
             this.SuspendLayout();
             // 
             // cmbCustomer
             // 
             this.cmbCustomer.Enabled = false;
             this.cmbCustomer.FormattingEnabled = true;
-            this.cmbCustomer.Location = new System.Drawing.Point(117, 51);
+            this.cmbCustomer.Location = new System.Drawing.Point(114, 59);
             this.cmbCustomer.Name = "cmbCustomer";
             this.cmbCustomer.Size = new System.Drawing.Size(136, 23);
             this.cmbCustomer.TabIndex = 0;
@@ -51,7 +53,7 @@ namespace WinFormsApp
             // lblCustomer
             // 
             this.lblCustomer.AutoSize = true;
-            this.lblCustomer.Location = new System.Drawing.Point(21, 54);
+            this.lblCustomer.Location = new System.Drawing.Point(18, 62);
             this.lblCustomer.Name = "lblCustomer";
             this.lblCustomer.Size = new System.Drawing.Size(53, 15);
             this.lblCustomer.TabIndex = 1;
@@ -60,7 +62,7 @@ namespace WinFormsApp
             // lblRentDate
             // 
             this.lblRentDate.AutoSize = true;
-            this.lblRentDate.Location = new System.Drawing.Point(21, 83);
+            this.lblRentDate.Location = new System.Drawing.Point(18, 91);
             this.lblRentDate.Name = "lblRentDate";
             this.lblRentDate.Size = new System.Drawing.Size(90, 15);
             this.lblRentDate.TabIndex = 3;
@@ -68,7 +70,7 @@ namespace WinFormsApp
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(157, 109);
+            this.btnAdd.Location = new System.Drawing.Point(154, 117);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(96, 26);
             this.btnAdd.TabIndex = 4;
@@ -79,47 +81,57 @@ namespace WinFormsApp
             // dtpRentDate
             // 
             this.dtpRentDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpRentDate.Location = new System.Drawing.Point(117, 80);
+            this.dtpRentDate.Location = new System.Drawing.Point(114, 88);
             this.dtpRentDate.Name = "dtpRentDate";
             this.dtpRentDate.Size = new System.Drawing.Size(136, 23);
             this.dtpRentDate.TabIndex = 5;
             // 
-            // btnChecked
-            // 
-            this.btnChecked.Location = new System.Drawing.Point(259, 48);
-            this.btnChecked.Name = "btnChecked";
-            this.btnChecked.Size = new System.Drawing.Size(61, 26);
-            this.btnChecked.TabIndex = 23;
-            this.btnChecked.Text = "Seç";
-            this.btnChecked.UseVisualStyleBackColor = true;
-            this.btnChecked.Click += new System.EventHandler(this.btnChecked_Click);
-            // 
             // lblCar
             // 
             this.lblCar.AutoSize = true;
-            this.lblCar.Location = new System.Drawing.Point(21, 25);
+            this.lblCar.Location = new System.Drawing.Point(18, 33);
             this.lblCar.Name = "lblCar";
-            this.lblCar.Size = new System.Drawing.Size(89, 15);
-            this.lblCar.TabIndex = 25;
-            this.lblCar.Text = "Kiralanan Araç :";
+            this.lblCar.Size = new System.Drawing.Size(71, 15);
+            this.lblCar.TabIndex = 7;
+            this.lblCar.Text = "Araç Bilgisi :";
             // 
             // cmbCar
             // 
             this.cmbCar.Enabled = false;
             this.cmbCar.FormattingEnabled = true;
-            this.cmbCar.Location = new System.Drawing.Point(117, 22);
+            this.cmbCar.Location = new System.Drawing.Point(114, 30);
             this.cmbCar.Name = "cmbCar";
             this.cmbCar.Size = new System.Drawing.Size(136, 23);
-            this.cmbCar.TabIndex = 24;
+            this.cmbCar.TabIndex = 6;
+            // 
+            // btnCheck
+            // 
+            this.btnCheck.Location = new System.Drawing.Point(256, 59);
+            this.btnCheck.Name = "btnCheck";
+            this.btnCheck.Size = new System.Drawing.Size(51, 23);
+            this.btnCheck.TabIndex = 8;
+            this.btnCheck.Text = "Seç";
+            this.btnCheck.UseVisualStyleBackColor = true;
+            this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
+            // 
+            // dtRental
+            // 
+            this.dtRental.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtRental.Location = new System.Drawing.Point(322, 30);
+            this.dtRental.Name = "dtRental";
+            this.dtRental.RowTemplate.Height = 25;
+            this.dtRental.Size = new System.Drawing.Size(380, 410);
+            this.dtRental.TabIndex = 9;
             // 
             // RentalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(329, 148);
+            this.ClientSize = new System.Drawing.Size(714, 452);
+            this.Controls.Add(this.dtRental);
+            this.Controls.Add(this.btnCheck);
             this.Controls.Add(this.lblCar);
             this.Controls.Add(this.cmbCar);
-            this.Controls.Add(this.btnChecked);
             this.Controls.Add(this.dtpRentDate);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lblRentDate);
@@ -129,6 +141,7 @@ namespace WinFormsApp
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RentalForm";
             this.Load += new System.EventHandler(this.RentalForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dtRental)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,9 +152,10 @@ namespace WinFormsApp
         private System.Windows.Forms.Label lblRentDate;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DateTimePicker dtpRentDate;
-        private System.Windows.Forms.Button btnChecked;
-        public System.Windows.Forms.ComboBox cmbCustomer;
         private System.Windows.Forms.Label lblCar;
         public System.Windows.Forms.ComboBox cmbCar;
+        public System.Windows.Forms.ComboBox cmbCustomer;
+        private System.Windows.Forms.Button btnCheck;
+        private System.Windows.Forms.DataGridView dtRental;
     }
 }

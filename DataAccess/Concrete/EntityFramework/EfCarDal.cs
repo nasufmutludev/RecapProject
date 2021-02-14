@@ -25,8 +25,7 @@ namespace DataAccess.Concrete.EntityFramework
                                  ModelYear=c.ModelYear,
                                  DailyPrice=c.DailyPrice,
                                  ColorName=cl.ColorName,
-                                 Descreption=c.Description,
-                                 Status=c.Status
+                                 Descreption=c.Description,                               
                              };
                 return result.ToList();
             }

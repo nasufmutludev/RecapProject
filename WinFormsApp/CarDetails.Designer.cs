@@ -69,7 +69,7 @@ namespace WinFormsApp
             this.tabControl1.Location = new System.Drawing.Point(12, 43);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(849, 656);
+            this.tabControl1.Size = new System.Drawing.Size(810, 656);
             this.tabControl1.TabIndex = 2;
             // 
             // tabPage1
@@ -81,15 +81,15 @@ namespace WinFormsApp
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(841, 628);
+            this.tabPage1.Size = new System.Drawing.Size(802, 628);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Araç Bilgisi";
             // 
             // btnRent
             // 
-            this.btnRent.Location = new System.Drawing.Point(731, 282);
+            this.btnRent.Location = new System.Drawing.Point(658, 282);
             this.btnRent.Name = "btnRent";
-            this.btnRent.Size = new System.Drawing.Size(96, 32);
+            this.btnRent.Size = new System.Drawing.Size(125, 36);
             this.btnRent.TabIndex = 16;
             this.btnRent.Text = "Kirala";
             this.btnRent.UseVisualStyleBackColor = true;
@@ -103,10 +103,9 @@ namespace WinFormsApp
             this.dtCarList.Name = "dtCarList";
             this.dtCarList.RowTemplate.Height = 25;
             this.dtCarList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtCarList.Size = new System.Drawing.Size(814, 263);
+            this.dtCarList.Size = new System.Drawing.Size(770, 263);
             this.dtCarList.TabIndex = 15;
             this.dtCarList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtCarList_CellClick);
-            this.dtCarList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtCarList_CellDoubleClick);
             // 
             // grbCarAdd
             // 
@@ -285,7 +284,7 @@ namespace WinFormsApp
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(841, 628);
+            this.tabPage2.Size = new System.Drawing.Size(802, 628);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Kiralanan Araçlar";
             // 
@@ -295,7 +294,7 @@ namespace WinFormsApp
             this.dataStatus});
             this.statusCheck.Location = new System.Drawing.Point(0, 702);
             this.statusCheck.Name = "statusCheck";
-            this.statusCheck.Size = new System.Drawing.Size(873, 22);
+            this.statusCheck.Size = new System.Drawing.Size(834, 22);
             this.statusCheck.TabIndex = 3;
             this.statusCheck.Text = "statusStrip1";
             // 
@@ -308,7 +307,7 @@ namespace WinFormsApp
             // 
             // btnUserForm
             // 
-            this.btnUserForm.Location = new System.Drawing.Point(687, 14);
+            this.btnUserForm.Location = new System.Drawing.Point(649, 14);
             this.btnUserForm.Name = "btnUserForm";
             this.btnUserForm.Size = new System.Drawing.Size(75, 23);
             this.btnUserForm.TabIndex = 4;
@@ -318,7 +317,7 @@ namespace WinFormsApp
             // 
             // btnCustomer
             // 
-            this.btnCustomer.Location = new System.Drawing.Point(768, 14);
+            this.btnCustomer.Location = new System.Drawing.Point(730, 14);
             this.btnCustomer.Name = "btnCustomer";
             this.btnCustomer.Size = new System.Drawing.Size(75, 23);
             this.btnCustomer.TabIndex = 5;
@@ -331,7 +330,7 @@ namespace WinFormsApp
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(873, 724);
+            this.ClientSize = new System.Drawing.Size(834, 724);
             this.Controls.Add(this.btnCustomer);
             this.Controls.Add(this.btnUserForm);
             this.Controls.Add(this.statusCheck);
@@ -377,8 +376,8 @@ namespace WinFormsApp
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button btnUserForm;
         private System.Windows.Forms.Button btnCustomer;
-        public System.Windows.Forms.DataGridView dtCarList;
         private System.Windows.Forms.Button btnRent;
+        public System.Windows.Forms.DataGridView dtCarList;
     }
 }
 

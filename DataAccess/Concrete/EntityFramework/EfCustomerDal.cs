@@ -22,7 +22,7 @@ namespace DataAccess.Concrete.EntityFramework
                                  CustomerId = c.CustomerId,
                                  FirstName = u.FirstName,
                                  CustomerName=c.CustomerName,
-                                 CompanyName = c.CompanyName
+                                 CompanyName = c.CompanyName                                 
                              };
                 return result.ToList();
             }

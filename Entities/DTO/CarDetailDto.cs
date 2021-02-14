@@ -14,6 +14,6 @@ namespace Entities.DTO
         public int ModelYear { get; set; }
         public decimal DailyPrice { get; set; }
         public string Descreption { get; set; }
-        public bool Status { get; set; }
+        
     }
 }
