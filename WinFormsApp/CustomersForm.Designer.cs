@@ -44,6 +44,7 @@ namespace WinFormsApp
             // 
             // dtCustomer
             // 
+            this.dtCustomer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtCustomer.Location = new System.Drawing.Point(12, 12);
             this.dtCustomer.Name = "dtCustomer";
@@ -167,9 +168,7 @@ namespace WinFormsApp
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnChecked;
-        private System.Windows.Forms.ComboBox m;
-        private System.Windows.Forms.ComboBox ser;
+        private System.Windows.Forms.Button btnChecked;        
         public System.Windows.Forms.ComboBox cmbUser;
     }
 }

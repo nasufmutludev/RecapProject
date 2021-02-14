@@ -1,8 +1,11 @@
 ﻿using Business.Abstract;
 using Business.Concrete;
 using Business.Constants;
+using Business.ValidationRules;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
+using Entities.DTO;
+using FluentValidation.Results;
 using System;
 using System.Windows.Forms;
 
@@ -17,28 +20,43 @@ namespace WinFormsApp
             _brandService = new BrandManager(new EfBrandDal());
             _colorService = new ColorManager(new EfColorDal());
             _userService = new UserManager(new EfUserDal());
+            _rentalService = new RentalManager(new EfRentalDal());
         }
         ICarService _carService;
         IBrandService _brandService;
         IColorService _colorService;
         IUserService _userService;
+        IRentalService _rentalService;
         private void CarDetails_Load(object sender, EventArgs e)
         {
             CustomDate();
-            
+
             CarList();
             CarHeaderText();
             dtCarList.Columns[0].Visible = false;
             CmbMarka();
             CmbColor();
-            
-        }  
+            ButtonAdd();
+        }
+
+        private void ButtonAdd()
+        {
+            DataGridViewButtonColumn rentalButton = new DataGridViewButtonColumn();
+            rentalButton.HeaderText = "Kirala";
+            rentalButton.Text = "Kirala";
+            rentalButton.Name = "btnRental";
+            rentalButton.UseColumnTextForButtonValue = true;
+            rentalButton.Width = 10;
+
+            //Butonu table (kolon) olarak ekliyoruz
+            dtCarList.Columns.Add(rentalButton);
+        }
 
         private void CustomDate()
         {
             for (int i = 1988; i <= DateTime.Now.Year; i++)
-            {               
-                cmbModelYear.Items.Add(i);                
+            {
+                cmbModelYear.Items.Add(i);
             }
         }
 
@@ -59,7 +77,7 @@ namespace WinFormsApp
         private void CarList()
         {
             var result = _carService.GetCarDetails().Data;
-            dtCarList.DataSource = result;            
+            dtCarList.DataSource = result;
         }
 
         private void CarHeaderText()
@@ -71,6 +89,7 @@ namespace WinFormsApp
             dtCarList.Columns[4].HeaderText = "Yıl";
             dtCarList.Columns[5].HeaderText = "Fiyat Bilgisi";
             dtCarList.Columns[6].HeaderText = "Açıklama";
+            dtCarList.Columns[7].HeaderText = "Durum";
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -184,6 +203,25 @@ namespace WinFormsApp
             cmbModelYear.Text = row.Cells[4].Value.ToString();
             txtDailyPrice.Text = row.Cells[5].Value.ToString();
             txtDescreption.Text = row.Cells[6].Value.ToString();
+
+            if (e.ColumnIndex == dtCarList.Columns[8].Index)
+            {
+                Car car = new Car()
+                {
+                    Status = Convert.ToBoolean(row.Cells[7].Value)
+                };
+                CarValidation validations = new CarValidation();
+                ValidationResult result = validations.Validate(car);
+                if (result.IsValid == true)
+                {
+                    RentalForm frm = new RentalForm();
+                    frm.Show();
+                }
+                else if (result.IsValid == false)
+                {
+                    MessageBox.Show("Araç Kiralanamaz");
+                }
+            }
         }
 
         private void TextBoxClear()
