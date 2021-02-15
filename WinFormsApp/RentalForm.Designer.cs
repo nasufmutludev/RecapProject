@@ -38,6 +38,7 @@ namespace WinFormsApp
             this.cmbCar = new System.Windows.Forms.ComboBox();
             this.btnCheck = new System.Windows.Forms.Button();
             this.dtRental = new System.Windows.Forms.DataGridView();
+            this.btnReturnRental = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtRental)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,7 +71,7 @@ namespace WinFormsApp
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(154, 117);
+            this.btnAdd.Location = new System.Drawing.Point(52, 117);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(96, 26);
             this.btnAdd.TabIndex = 4;
@@ -123,11 +124,22 @@ namespace WinFormsApp
             this.dtRental.Size = new System.Drawing.Size(380, 410);
             this.dtRental.TabIndex = 9;
             // 
+            // btnReturnRental
+            // 
+            this.btnReturnRental.Location = new System.Drawing.Point(154, 117);
+            this.btnReturnRental.Name = "btnReturnRental";
+            this.btnReturnRental.Size = new System.Drawing.Size(96, 26);
+            this.btnReturnRental.TabIndex = 10;
+            this.btnReturnRental.Text = "Teslim Al";
+            this.btnReturnRental.UseVisualStyleBackColor = true;
+            this.btnReturnRental.Click += new System.EventHandler(this.btnReturnRental_Click);
+            // 
             // RentalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(714, 452);
+            this.Controls.Add(this.btnReturnRental);
             this.Controls.Add(this.dtRental);
             this.Controls.Add(this.btnCheck);
             this.Controls.Add(this.lblCar);
@@ -157,5 +169,6 @@ namespace WinFormsApp
         public System.Windows.Forms.ComboBox cmbCustomer;
         private System.Windows.Forms.Button btnCheck;
         private System.Windows.Forms.DataGridView dtRental;
+        private System.Windows.Forms.Button btnReturnRental;
     }
 }

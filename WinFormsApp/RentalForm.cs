@@ -3,12 +3,8 @@ using Business.Concrete;
 using Business.Constants;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
+using Entities.DTO;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace WinFormsApp
@@ -25,25 +21,25 @@ namespace WinFormsApp
         ICarService _carService;
         ICustomerService _customerService;
         IRentalService _rentalService;
-
+        
         private void RentalForm_Load(object sender, EventArgs e)
         {
             LoadCar();
             cmbCarDt();
-            //LoadUser();
+            LoadUser();
             LoadRental();
         }
 
         private void LoadRental()
         {
-            var result = _rentalService.GetAll().Data;
+            var result = _rentalService.GetRentalDetails().Data;
             dtRental.DataSource = result;
         }
 
         private void LoadUser()
         {
-            cmbCustomer.DataSource = _customerService.GetAll().Data;
-            cmbCustomer.DisplayMember = "CompanyName";
+            cmbCustomer.DataSource = _customerService.GetCustomerDetails().Data;
+            cmbCustomer.DisplayMember = "FirstName";
             cmbCustomer.ValueMember = "CustomerId";
         }
 
@@ -68,15 +64,39 @@ namespace WinFormsApp
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            Rental rental = new Rental()
+            CarDetails frm = (CarDetails)Application.OpenForms["CarDetails"];
+            int id = (int)frm.dtCarList.CurrentRow.Cells[0].Value;
+            var result = _rentalService.CheckReturnDate(id);
+            if (result.Success)
             {
-                CarId = Convert.ToInt32(cmbCar.SelectedValue),
-                CustomerId = Convert.ToInt32(cmbCustomer.SelectedValue),
-                RentDate = Convert.ToDateTime(dtpRentDate.Text)
-            };
-            _rentalService.Add(rental);
-            LoadRental();
-            MessageBox.Show(Messages.Added);
+                Rental rental = new Rental()
+                {
+                    CarId=Convert.ToInt32(cmbCar.SelectedValue),
+                    CustomerId=Convert.ToInt32(cmbCustomer.SelectedValue),
+                    RentDate=dtpRentDate.Value
+                };
+                _rentalService.Add(rental);
+                LoadRental();
+            }
+            else
+            {
+                MessageBox.Show(Messages.Error);
+            }
+        }
+
+        private void btnReturnRental_Click(object sender, EventArgs e)
+        {
+            CarDetails frm = (CarDetails)Application.OpenForms["CarDetails"];
+            int id = (int)frm.dtCarList.CurrentRow.Cells[0].Value;
+            var result = _rentalService.UpdateReturnDate(id);
+            if (result.Success)
+            {
+                LoadRental();
+            }
+            else
+            {
+                MessageBox.Show(Messages.Error);
+            }
         }
     }
 }

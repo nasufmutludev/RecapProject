@@ -49,6 +49,7 @@ namespace WinFormsApp
             this.dtCustomer.Location = new System.Drawing.Point(12, 12);
             this.dtCustomer.Name = "dtCustomer";
             this.dtCustomer.RowTemplate.Height = 25;
+            this.dtCustomer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtCustomer.Size = new System.Drawing.Size(461, 235);
             this.dtCustomer.TabIndex = 0;
             this.dtCustomer.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtCustomer_CellDoubleClick);
@@ -64,7 +65,7 @@ namespace WinFormsApp
             // 
             // txtCompanyName
             // 
-            this.txtCompanyName.Location = new System.Drawing.Point(76, 297);
+            this.txtCompanyName.Location = new System.Drawing.Point(91, 297);
             this.txtCompanyName.Name = "txtCompanyName";
             this.txtCompanyName.Size = new System.Drawing.Size(185, 23);
             this.txtCompanyName.TabIndex = 2;
@@ -80,7 +81,7 @@ namespace WinFormsApp
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(316, 326);
+            this.btnClear.Location = new System.Drawing.Point(316, 363);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(96, 26);
             this.btnClear.TabIndex = 21;
@@ -89,16 +90,17 @@ namespace WinFormsApp
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(214, 326);
+            this.btnDelete.Location = new System.Drawing.Point(214, 363);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(96, 26);
             this.btnDelete.TabIndex = 20;
             this.btnDelete.Text = "Sil";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(112, 326);
+            this.btnEdit.Location = new System.Drawing.Point(112, 363);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(96, 26);
             this.btnEdit.TabIndex = 19;
@@ -107,7 +109,7 @@ namespace WinFormsApp
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(12, 326);
+            this.btnAdd.Location = new System.Drawing.Point(12, 363);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(96, 26);
             this.btnAdd.TabIndex = 18;
@@ -117,7 +119,7 @@ namespace WinFormsApp
             // 
             // btnChecked
             // 
-            this.btnChecked.Location = new System.Drawing.Point(214, 265);
+            this.btnChecked.Location = new System.Drawing.Point(229, 265);
             this.btnChecked.Name = "btnChecked";
             this.btnChecked.Size = new System.Drawing.Size(61, 26);
             this.btnChecked.TabIndex = 22;
@@ -129,16 +131,17 @@ namespace WinFormsApp
             // 
             this.cmbUser.Enabled = false;
             this.cmbUser.FormattingEnabled = true;
-            this.cmbUser.Location = new System.Drawing.Point(76, 268);
+            this.cmbUser.Location = new System.Drawing.Point(91, 268);
             this.cmbUser.Name = "cmbUser";
             this.cmbUser.Size = new System.Drawing.Size(132, 23);
             this.cmbUser.TabIndex = 23;
+            this.cmbUser.SelectedIndexChanged += new System.EventHandler(this.cmbUser_SelectedIndexChanged);
             // 
             // CustomersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(487, 372);
+            this.ClientSize = new System.Drawing.Size(487, 412);
             this.Controls.Add(this.cmbUser);
             this.Controls.Add(this.btnChecked);
             this.Controls.Add(this.btnClear);
