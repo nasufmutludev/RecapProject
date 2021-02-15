@@ -73,7 +73,7 @@ namespace WinFormsApp
         {
             RentalForm frm = (RentalForm)Application.OpenForms["RentalForm"];
             var row = dtCustomer.CurrentRow;
-            frm.cmbCustomer.Text = row.Cells[1].Value.ToString();
+            frm.cmbCustomer.Text = row.Cells[2].Value.ToString();
             this.Close();
         }
     }
