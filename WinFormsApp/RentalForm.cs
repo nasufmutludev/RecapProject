@@ -92,9 +92,6 @@ namespace WinFormsApp
             if (result.Success)
             {
                 LoadRental();
-            }
-            else
-            {
                 MessageBox.Show("Teslim Alındı");
             }
         }

@@ -54,7 +54,6 @@ namespace WinFormsApp
             this.dataStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnUserForm = new System.Windows.Forms.Button();
             this.btnCustomer = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtCarList)).BeginInit();
@@ -74,7 +73,6 @@ namespace WinFormsApp
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.btnRent);
             this.tabPage1.Controls.Add(this.dtCarList);
             this.tabPage1.Controls.Add(this.grbCarAdd);
@@ -91,7 +89,7 @@ namespace WinFormsApp
             this.btnRent.Name = "btnRent";
             this.btnRent.Size = new System.Drawing.Size(125, 36);
             this.btnRent.TabIndex = 16;
-            this.btnRent.Text = "Kirala";
+            this.btnRent.Text = "Kirala / Teslim Al";
             this.btnRent.UseVisualStyleBackColor = true;
             this.btnRent.Click += new System.EventHandler(this.btnRent_Click);
             // 
@@ -315,16 +313,6 @@ namespace WinFormsApp
             this.btnCustomer.UseVisualStyleBackColor = true;
             this.btnCustomer.Click += new System.EventHandler(this.btnCustomer_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(658, 323);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 36);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "Teslim Al";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // CarDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -377,7 +365,6 @@ namespace WinFormsApp
         private System.Windows.Forms.Button btnCustomer;
         private System.Windows.Forms.Button btnRent;
         public System.Windows.Forms.DataGridView dtCarList;
-        private System.Windows.Forms.Button button1;
     }
 }
 

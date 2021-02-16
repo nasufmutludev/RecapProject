@@ -221,17 +221,5 @@ namespace WinFormsApp
             RentalForm frm = new RentalForm();
             frm.Show();
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ReturnRental();
-            
-        }
-
-        private void ReturnRental()
-        {
-            RentalForm frm = new RentalForm();
-            frm.Show();
-        }
     }
 }
