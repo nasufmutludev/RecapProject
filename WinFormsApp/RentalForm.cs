@@ -80,7 +80,7 @@ namespace WinFormsApp
             }
             else
             {
-                MessageBox.Show(Messages.Error);
+                MessageBox.Show("Araç zaten kiralık");
             }
         }
 
@@ -95,7 +95,7 @@ namespace WinFormsApp
             }
             else
             {
-                MessageBox.Show(Messages.Error);
+                MessageBox.Show("Teslim Alındı");
             }
         }
     }
