@@ -27,7 +27,7 @@ namespace DataAccess.Concrete.EntityFramework
                                  CarName = c.CarName,
                                  FirstName = u.FirstName,
                                  RentDate = r.RentDate,
-                                 ReturnDate = r.ReturnDate
+                                 ReturnDate = r.ReturnDate,
                              };
 
                 return result.ToList();
