@@ -12,6 +12,7 @@ namespace Business.Constants
         public static string Error = "Hata";
         public static string Listed = "Listelendi";
         public static string ColorListed = "Renk Şeması Listelendi";
-        public static string Success = "Başarılı";        
+        public static string Success = "Başarılı";
+        public static string DeletedCarImage = "Araba resmi silindi";
     }
 }
