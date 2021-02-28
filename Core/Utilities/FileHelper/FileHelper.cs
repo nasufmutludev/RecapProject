@@ -12,7 +12,7 @@ namespace Core.Utilities.FileHelper
         {
             var result = newPath(file);
             try
-            {
+            {                
                 var source = Path.GetTempFileName();
                 if (file.Length > 0)
                 {
@@ -30,7 +30,7 @@ namespace Core.Utilities.FileHelper
 
 
         public static (string newPath, string path) newPath(IFormFile file)
-        {
+        {   
             FileInfo ff = new FileInfo(file.FileName);
             string fileExtension = ff.Extension;
 
@@ -38,7 +38,7 @@ namespace Core.Utilities.FileHelper
                + "_" + DateTime.Now.Month + "_"
                + DateTime.Now.Day + "_"
                + DateTime.Now.Year + fileExtension;
-
+                        
 
             string path = Environment.CurrentDirectory + @"\wwwroot\Images";
 
