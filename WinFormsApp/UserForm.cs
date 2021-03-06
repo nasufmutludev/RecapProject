@@ -2,9 +2,9 @@
 using Business.Concrete;
 using Business.Constants;
 using DataAccess.Concrete.EntityFramework;
-using Entities.Concrete;
 using System;
 using System.Windows.Forms;
+using Core.Entities.Concrete;
 
 namespace WinFormsApp
 {
@@ -26,7 +26,7 @@ namespace WinFormsApp
                     FirstName = txtName.Text,
                     LastName = txtLastName.Text,
                     Email = txtMail.Text,
-                    Password = txtPass.Text
+                    //Password = txtPass.Text
                 };
                 _userService.Add(users);
                 UsersLoad();
@@ -69,7 +69,7 @@ namespace WinFormsApp
                 {
                     _userService.Delete(new User
                     {
-                        UserId = Convert.ToInt32(dtUsers.CurrentRow.Cells[0].Value)
+                        Id = Convert.ToInt32(dtUsers.CurrentRow.Cells[0].Value)
                     });
                 }
                 MessageBox.Show("Sistem Bilgisi: " + Messages.Deleted);
@@ -87,11 +87,11 @@ namespace WinFormsApp
             {
                 _userService.Update(new User
                 {
-                    UserId= Convert.ToInt32(dtUsers.CurrentRow.Cells[0].Value),
+                    Id= Convert.ToInt32(dtUsers.CurrentRow.Cells[0].Value),
                     FirstName = txtName.Text,
                     LastName = txtLastName.Text,
                     Email = txtMail.Text,
-                    Password = txtPass.Text
+                    //Password = txtPass.Text
                 });
                 UsersLoad();
                 TextBoxUserClear();

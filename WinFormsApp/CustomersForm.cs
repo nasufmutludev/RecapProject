@@ -35,7 +35,7 @@ namespace WinFormsApp
         {
             cmbUser.DataSource = _userService.GetAll().Data;
             cmbUser.DisplayMember = "FirstName";
-            cmbUser.ValueMember = "UserId";            
+            cmbUser.ValueMember = "Id";            
         }
 
         private void LoadCustomer()

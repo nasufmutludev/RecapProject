@@ -16,11 +16,11 @@ namespace DataAccess.Concrete.EntityFramework
             using (CarContext context=new CarContext())
             {
                 var result = from c in context.Customers
-                             join u in context.Users on c.UserId equals u.UserId
+                             join u in context.Users on c.UserId equals u.Id
                              select new CustomerDetailDto
                              {
                                  CustomerId = c.CustomerId,
-                                 UserId=u.UserId,
+                                 UserId=u.Id,
                                  FirstName = u.FirstName,                                 
                                  CompanyName = c.CompanyName                                 
                              };
