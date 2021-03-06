@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
-using System.Text;
 
 namespace Core.Utilities.Security.JWT
 {
@@ -61,7 +60,7 @@ namespace Core.Utilities.Security.JWT
             claims.AddEmail(user.Email);
             claims.AddName($"{user.FirsName} {user.LastName}");
             claims.AddRoles(operationClaims.Select(c => c.Name).ToArray());
-
+            
             return claims;
         }
     }
