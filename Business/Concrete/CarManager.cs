@@ -4,9 +4,8 @@ using DataAccess.Abstract;
 using Core.Utilities;
 using Entities.Concrete;
 using Entities.DTO;
-using System;
 using System.Collections.Generic;
-using System.Text;
+using Business.BusinessAspects.Autofac;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
 
@@ -21,7 +20,7 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
-        //[SecuredOperation("car.add","admin")]
+        [SecuredOperation("car.add,admin")]
         [ValidationAspect(typeof(ProductValidator))]
         public IResult Add(Car car)
         {

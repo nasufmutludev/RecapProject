@@ -14,5 +14,6 @@ namespace Business.Constants
         public static string ColorListed = "Renk Şeması Listelendi";
         public static string Success = "Başarılı";
         public static string DeletedCarImage = "Araba resmi silindi";
+        public static string AuthorizationDenied = "Yetkiniz Yok";
     }
 }
