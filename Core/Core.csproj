@@ -10,10 +10,10 @@
     <PackageReference Include="FluentValidation" Version="9.5.1" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.1" />
+    <PackageReference Include="System.IdentityModel.Tokens" Version="5.0.0-rc1-211161024" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Utilities\Security\Encryption" />
     <Folder Include="Utilities\Security\JWT" />
   </ItemGroup>
 
