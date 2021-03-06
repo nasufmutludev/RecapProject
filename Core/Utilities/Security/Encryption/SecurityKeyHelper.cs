@@ -1,4 +1,4 @@
-﻿using System.IdentityModel.Tokens;
+﻿using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
 namespace Core.Utilities.Security.Encryption
