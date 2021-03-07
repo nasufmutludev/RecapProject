@@ -28,6 +28,10 @@ namespace Business.Concrete
         {
             IResult result = BusinessRules.Run(CheckCarNameExists(car.CarName),
                 CheckIfCarCountOfColorCorrect(car.ColorId));
+            if (result!=null)
+            {
+                return result;
+            }
             _carDal.Add(car);
             return new SuccessResult(Messages.Added);
         }
