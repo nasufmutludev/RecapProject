@@ -7,6 +7,7 @@ using Entities.DTO;
 using System.Collections.Generic;
 using Business.BusinessAspects.Autofac;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Business;
 using Microsoft.EntityFrameworkCore.Internal;
@@ -64,6 +65,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.Deleted);
         }
 
+        [CacheAspect]
         [SecuredOperation("car.add,admin")]
         public IDataResult<List<Car>> GetAll()
         {
