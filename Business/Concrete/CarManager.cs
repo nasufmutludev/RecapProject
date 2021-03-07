@@ -84,7 +84,6 @@ namespace Business.Concrete
 
         [CacheAspect]
         [SecuredOperation("car.add,admin")]
-        [PerformanceAspect(5)]
         public IDataResult<List<Car>> GetAll()
         {
             Thread.Sleep(5000);
