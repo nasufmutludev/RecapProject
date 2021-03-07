@@ -1,3 +1,4 @@
+using Core.DependencyResolvers;
 using Core.Extensions;
 using Core.Utilities.IoC;
 using Core.Utilities.Security.Encryption;
@@ -31,7 +32,7 @@ namespace WepAPI
             //Postsharp
             services.AddControllers();
 
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
@@ -49,10 +50,10 @@ namespace WepAPI
                         IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
                     };
                 });
-            ServiceTool.Create(services);
-            //services.AddDependencyResolvers(new ICoreModule[] {
-                //new CoreModule()
-            //});
+            //ServiceTool.Create(services);
+            services.AddDependencyResolvers(new ICoreModule[] {
+                new CoreModule()
+            });
 
 
             //services.AddControllers();
