@@ -1,13 +1,17 @@
-﻿using Business.Abstract;
+﻿using System;
+using Business.Abstract;
 using Business.Constants;
 using DataAccess.Abstract;
 using Core.Utilities;
 using Entities.Concrete;
 using Entities.DTO;
 using System.Collections.Generic;
+using System.Threading;
 using Business.BusinessAspects.Autofac;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Performance;
+using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Business;
 using Microsoft.EntityFrameworkCore.Internal;
@@ -66,10 +70,24 @@ namespace Business.Concrete
             return new SuccessResult(Messages.Deleted);
         }
 
+        [TransactionScopeAspect]
+        public IResult AddTransactionalTest(Car car)
+        {
+            Add(car);
+            if (car.DailyPrice < 10)
+            {
+                throw new Exception("");
+            }
+            Add(car);
+            return null;
+        }
+
         [CacheAspect]
         [SecuredOperation("car.add,admin")]
+        [PerformanceAspect(5)]
         public IDataResult<List<Car>> GetAll()
         {
+            Thread.Sleep(5000);
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.Listed);
         }
 
