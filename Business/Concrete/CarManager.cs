@@ -27,14 +27,9 @@ namespace Business.Concrete
         public IResult Add(Car car)
         {
             IResult result = BusinessRules.Run(CheckCarNameExists(car.CarName),
-                CheckIfCarCountOfColorCorrect(car.ColorId), CheckIfCategoryLimitExceded());
+                CheckIfCarCountOfColorCorrect(car.ColorId));
             _carDal.Add(car);
             return new SuccessResult(Messages.Added);
-        }
-
-        private IResult CheckIfCategoryLimitExceded()
-        {
-            throw new System.NotImplementedException();
         }
 
         private IResult CheckIfCarCountOfColorCorrect(int colorId)
