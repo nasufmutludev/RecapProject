@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using Business.BusinessAspects.Autofac;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
+using Core.Utilities.Business;
+using Microsoft.EntityFrameworkCore.Internal;
 
 namespace Business.Concrete
 {
@@ -24,8 +26,37 @@ namespace Business.Concrete
         [ValidationAspect(typeof(ProductValidator))]
         public IResult Add(Car car)
         {
+            IResult result = BusinessRules.Run(CheckCarNameExists(car.CarName),
+                CheckIfCarCountOfColorCorrect(car.ColorId), CheckIfCategoryLimitExceded());
             _carDal.Add(car);
             return new SuccessResult(Messages.Added);
+        }
+
+        private IResult CheckIfCategoryLimitExceded()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private IResult CheckIfCarCountOfColorCorrect(int colorId)
+        {
+            var result = _carDal.GetAll(x => x.ColorId == colorId).Count;
+            if (result>10)
+            {
+                return new ErrorResult(Messages.ColorCountError);
+            }
+
+            return new SuccessResult();
+        }
+
+        private IResult CheckCarNameExists(string carName)
+        {
+            var result = _carDal.GetAll(x => x.CarName == carName).Any();
+            if (result)
+            {
+                return new ErrorResult(Messages.CarNameAlreadyExists);
+            }
+
+            return new SuccessResult();
         }
 
         public IResult Delete(Car car)

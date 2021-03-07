@@ -15,5 +15,7 @@ namespace Business.Constants
         public static string Success = "Başarılı";
         public static string DeletedCarImage = "Araba resmi silindi";
         public static string AuthorizationDenied = "Yetkiniz Yok";
+        public static string CarNameAlreadyExists = "Bu isimde zaten başka bir araç var";
+        public static string ColorCountError = "Bu renkte en fazla 10 araç olabilir";
     }
 }
