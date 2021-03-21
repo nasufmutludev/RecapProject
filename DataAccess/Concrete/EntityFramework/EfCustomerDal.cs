@@ -21,7 +21,7 @@ namespace DataAccess.Concrete.EntityFramework
                              {
                                  CustomerId = c.CustomerId,
                                  UserId=u.Id,
-                                 FirstName = u.FirstName,                                 
+                                 FirstName = u.FirstName,                            
                                  CompanyName = c.CompanyName                                 
                              };
                 return result.ToList();
