@@ -47,6 +47,16 @@ namespace WepAPI.Controllers
             }
             return BadRequest(result);
         }
+        [HttpGet("getbrandid")]
+        public IActionResult GetByBrand(int brandId)
+        {
+            var result = _carService.GetByBrand(brandId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
 
         [HttpPost("add")]
         public IActionResult Add(Car product)

@@ -21,6 +21,7 @@ namespace DataAccess.Concrete.EntityFramework
                              {      
                                  CarId=c.CarId,                                 
                                  CarName = c.CarName,
+                                 BrandId = b.BrandId,
                                  BrandName = b.BrandName,
                                  ModelYear=c.ModelYear,
                                  DailyPrice=c.DailyPrice,
