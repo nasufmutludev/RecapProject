@@ -120,9 +120,9 @@ namespace Business.Concrete
             return new SuccessResult(Messages.Updated);
         }
 
-        public IDataResult<List<Car>> GetByBrand(int brandId)
+        public IDataResult<List<CarDetailDto>> GetByBrand(int brandId)
         {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(x => x.BrandId == brandId));
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(x => x.BrandId == brandId));
         }
     }
 }
