@@ -62,9 +62,14 @@ namespace Business.Concrete
             return new SuccessDataResult<CarImage>(_carImageDal.Get(x => x.CarId == id));
         }
 
-        public IDataResult<List<CarImage>> GetCheckImages(int carId,string imagePath)
+        public IDataResult<List<CarImage>> GetImagesByCarId(int carId)
         {
-            return new SuccessDataResult<List<CarImage>>(CheckCarImageNull(carId, imagePath));
+            return new SuccessDataResult<List<CarImage>>(CheckCarImageNull(carId));
+        }
+
+        public IDataResult<List<CarImage>> GetCheckImages(int carId)
+        {
+            return new SuccessDataResult<List<CarImage>>(CheckCarImageNull(carId));
         }
 
         public IResult Update(IFormFile file, CarImage carImage)
@@ -84,10 +89,10 @@ namespace Business.Concrete
             }
             return new SuccessResult();
         }
-        private List<CarImage> CheckCarImageNull(int carId,string imagePath)
+        private List<CarImage> CheckCarImageNull(int carId)
         {
             string path = @"WepAPI/wwwroot/Images/default.jpg";
-            var result = _carImageDal.GetAll(x => x.CarId == carId && x.ImagePath== imagePath);
+            var result = _carImageDal.GetAll(x => x.CarId == carId);
             if (result.Count==0)
             {
                 return new List<CarImage> { new CarImage { CarId = carId, ImagePath = path, Date = DateTime.Now } };

@@ -20,6 +20,7 @@ namespace DataAccess.Concrete.EntityFramework
                              select new CarImageDto
                              {
                                  Id = cI.Id,
+                                 CarId = c.CarId,
                                  CarName = c.CarName,
                                  ImagePath = cI.ImagePath,
                                  Date = cI.Date

@@ -6,7 +6,6 @@ using System.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Text;
 
 namespace DataAccess.Concrete.EntityFramework
 {
@@ -24,11 +23,12 @@ namespace DataAccess.Concrete.EntityFramework
                                  CarId = c.CarId,
                                  CarName = c.CarName,
                                  BrandId = b.BrandId,
+                                 ColorId = c.ColorId,
                                  BrandName = b.BrandName,
                                  ModelYear = c.ModelYear,
                                  DailyPrice = c.DailyPrice,
                                  ColorName = cl.ColorName,
-                                 Descreption = c.Description,
+                                 Descreption = c.Description
                              };
                 return result.ToList();
             }

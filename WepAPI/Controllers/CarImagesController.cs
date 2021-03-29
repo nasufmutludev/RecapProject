@@ -46,9 +46,9 @@ namespace WepAPI.Controllers
             return BadRequest(result);
         }
         [HttpGet("getcheckall")]
-        public IActionResult GetCheckAll(int carId,string imagePath)
+        public IActionResult GetCheckAll(int carId)
         {            
-            var result = _carImageService.GetCheckImages(carId, imagePath);
+            var result = _carImageService.GetCheckImages(carId);
             if (result.Success)
             {
                 return Ok(result);

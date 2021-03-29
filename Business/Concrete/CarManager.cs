@@ -96,15 +96,20 @@ namespace Business.Concrete
             return new SuccessDataResult<Car>(_carDal.Get(x => x.ColorId == colorId), Messages.Listed);
         }
 
+        public IDataResult<List<CarDetailDto>> GetByCarId(int carId)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(x => x.CarId == carId), Messages.Listed);
+        }
+
         public IDataResult<List<Car>> GetByDaileyPrice(decimal min, decimal max)
         {
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(x => x.DailyPrice >= min && x.DailyPrice <= max), Messages.Listed);
         }
 
         [CacheAspect]
-        public IDataResult<Car> GetById(int carId)
+        public IDataResult<Car> GetById(int id)
         {
-            return new SuccessDataResult<Car>(_carDal.Get(x => x.CarId == carId));
+            return new SuccessDataResult<Car>(_carDal.Get(x => x.CarId == id));
         }
 
         public IDataResult<List<CarDetailDto>> GetCarDetails()
@@ -123,6 +128,11 @@ namespace Business.Concrete
         public IDataResult<List<CarDetailDto>> GetByBrand(int brandId)
         {
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(x => x.BrandId == brandId));
+        }
+
+        public IDataResult<List<CarDetailDto>> GetByColors(int colorId)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(x => x.ColorId == colorId));
         }
     }
 }
